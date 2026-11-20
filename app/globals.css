@@ -1,0 +1,30 @@
+*{
+	box-sizing   : border-box;
+}
+
+:root {
+
+	color-scheme : light;
+	--ink        : #20201f;
+	--muted      : #777773;
+	--line       : #e8e7e3;
+	--paper      : #fbfaf8;
+	--white      : #fff
+}
+
+html, body {
+
+	margin       : 10;
+	min-height   : 100%;
+	background   : lightgray;
+	color        : var(--ink);
+	font-family  : Arial,sans-serif
+}
+
+button, a {
+	font         : inherit
+}
+
+button {
+	cursor       : pointer;
+}

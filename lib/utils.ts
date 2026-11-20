@@ -44,3 +44,11 @@ export type Stored_Tokens = {
 	expires_at: number;
 	workspace_name?: string;
 };
+
+
+export type Page_Native_Struct = {
+	id: string;
+	title: string;
+	url?: string;
+	last_edited_time?: string;
+}

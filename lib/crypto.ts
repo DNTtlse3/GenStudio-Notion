@@ -1,7 +1,9 @@
 import { createCipheriv, createDecipheriv, createHash, randomBytes } from "node:crypto";
 import { get_env } from "./lib/environment";
 
-/*Pour le test on charge explicetement la variable d'environment locale*/
+/*
+	Pour le test on charge explicetement la variable d'environment locale
+*/
 import dotenv from "dotenv";
 
 dotenv.config({
@@ -23,7 +25,7 @@ function env_openssl_key() : Buffer {
 		const env_key = Buffer.from(get_env("ENCRYPTION_KEY"),"base64");
 
 		if(env_key.length !== 32){
-			throw new Error("length(ENCRYPTION_KEY, base64) must be equal to 32 bytes");
+			throw new Error("length(ENCRYPTION_KEY) must be equal to 32 bytes");
 		}
 
 		return env_key;

@@ -1,0 +1,321 @@
+
+.shell {
+	
+	max-width       : 1080px;
+	margin          : 0 auto;
+	padding         : 0 36px;
+	background      : rgba(255,255,255, 0.12);
+    backdrop-filter : blur(25px) saturate(180%);
+    -webkit-backdrop-filter : blur(25px) saturate(180%);
+    border          : 1px solid rgba(255,255,255, 0.25);
+    border-radius   : 35px;
+    box-shadow      : 0 8px 32px rgba(0,0,0,.15);
+
+}
+
+.topbar {
+	height          : 78px;
+	border-bottom   : 3px solid var(--line);
+	display         : flex;
+	align-items     : center;
+	justify-content : space-between;
+	border-radius   : 15px;
+}
+
+.wordmark {
+	font-size       : 19px;
+	font-weight     : 750;
+	letter-spacing  : -1px;
+	color           : var(--ink);
+	text-decoration : none;
+}
+
+.wordmark span {
+	font-weight     : 400;
+	color           : lightcoral;
+}
+
+
+.headerRight {
+	display         : flex;
+	align-items     : center;
+	gap             : 22px; 
+}
+
+.status {
+	font-size       : 15px;
+	color           : var(--muted);
+	display         : flex;
+	align-items     : center;
+	gap             : 8px;
+}
+
+.status i {
+	width           : 7px;
+	height          : 7px;
+	border-radius   : 50%;
+	background      : red;
+}
+
+.online i {
+	background      : lightseagreen; 
+}
+
+.textButton, 
+.refresh {
+	border-radius   : 20px;
+	border          : 3px solid var(--ink);
+	color           : black;
+	font-size       : 15px;
+	place-items     : center;
+	display         : grid;
+	height          : 45px;
+	width           : 80px;
+	font-weight     : 500;
+	transition      : background-color 0.3s ease;
+}
+
+.textButton:hover {
+	background-color: red;
+	color           : white;
+}
+
+.refresh:hover {
+	background-color: lightsalmon;
+}
+
+.intro {
+	padding         : 76px 0 66px;
+	border-bottom   : 3px solid var(--line);
+	border-radius   : 10px;
+
+}
+
+.eyebrow {
+	font-size       : 10px;
+	letter-spacing  : 2px;
+	font-weight     : 700;
+	color           : black;
+	margin          : 0 0 15px;
+}
+
+.intro h1 {
+	font-size       : clamp(35px, 6vw, 60px);
+	line-height     : 1.05;
+	letter-spacing  : -3px;
+	margin          : 0;
+	max-width       : 720px;
+}
+
+
+.intro h1 span {
+	color           : #aaa;
+}
+
+.subtitle {
+	color           : black;
+	line-height     : 2;
+	max-width       : 480px;
+	font-size       : 14px;
+	margin          : 22px 0 28px;
+}
+
+.primary, 
+.primarySmall {
+	border          : 3px solid var(--ink);
+	background      : var(--ink);
+	color           : white;
+	border-radius   : 15px;
+	padding         : 12px 17px;
+	font-size       : 12px;
+	font-weight     : 600;
+	transition      : background-color 0.3s ease;
+}
+
+
+.primary:hover {
+	color           : black;
+	background-color: white;
+	opacity         : 0.50;
+}
+
+.primary span {
+	margin-left     : 18px;
+}
+
+
+.worskspace {
+	font-size       : 13px;
+	color           : #777;
+}
+
+.worskspace strong{
+	color           : #222;
+}
+
+.content{
+	padding         : 48px 0 72px;
+}
+
+
+.sectionHeading {
+	display         : flex;
+	justify-content : space-between;
+	align-items     : end;
+	margin-bottom   : 22px;
+}
+
+.sectionHeading h2 {
+	font-size       : 24px;
+	letter-spacing  : -1px;
+	margin          : 0;
+}
+
+
+.pageList {
+	border-top       : 5px solid var(--line);
+	border-radius    : 10px;
+}
+
+
+.pageCard {
+	min-height       : 88px;
+	border-bottom    : 2px solid var(--line);
+	display          : flex;
+	align-items      : center;
+	gap              : 17px;
+	padding          : 14px 4px;
+	border-radius    : 15px;
+}
+
+
+.pageIcon {
+	width            : 55px;
+	height           : 40px;
+	border           : 3px solid var(--line);
+	border-radius    : 10px;
+	display          : grid;
+	place-items      : center;
+	color            : black;
+	font-size        : 18px;
+	background       : #A0C1D1;
+}
+
+
+.pageInfo {
+	flex             : 1;
+	min-width        : 0;
+}
+
+.pageInfo h3 {
+	font-size        : 14px;
+	font-weight      : 600;
+	margin           : 0 0 7px;
+	white-space      : nowrap;
+	overflow         : hidden;
+	text-overflow    : ellipsis;	
+}
+
+
+.pageInfo p {
+	font-size        : 11px;
+	color            : #999;
+	margin           : 0;
+}
+
+
+
+.actions {
+	display          : flex;
+	align-items      : center;
+	gap              : 9px;
+}
+
+.secondary, 
+.primarySmall {
+	font-size        : 14px;
+	padding          : 10px 13px;
+	border-radius    : 15px;
+	text-decoration  : none;
+}
+
+.secondary {
+	border           : 3px solid var(--line);
+	color            : black;
+	background       : white;
+	transition       : background-color 0.3s ease;
+}
+
+.secondary:hover {
+	background-color : lightblue;
+}
+
+.primarySmall {
+	padding          : 10px 13px;
+	transition       : background-color 0.3s ease;
+	font-weight      : 500;
+}
+
+.primarySmall:hover {
+	background-color : white;
+	color            : black;
+	opacity          : 0.70;
+}
+
+
+.empty {
+	min-height       : 210px;
+	border           : 3px dashed #deddd8;
+	border-radius    : 8px;
+	display          : flex;
+	flex-direction   : column;
+	align-items      : center;
+	justify-content  : center;
+	text-align       : center;
+	color            : #888;
+	padding          : 24px;
+}
+
+
+.empty h3 {
+	font-size        : 15px;
+	color            : #333;
+	margin           : 13px 0 5px;
+}
+
+
+.empty p {
+	font-size        : 12px;
+	margin           : 0;
+}
+
+
+.emptyIcon {
+	width            : 35px;
+	height           : 35px;
+	border-radius    : 10px;
+	background       : #222;
+	color            : white;
+	display          : grid;
+	place-items      : center;
+	font-weight      : bold;
+}
+
+
+.error {
+	padding          : 12px;
+	background       : #fff0ee;
+	border           : 1px solid #f0d4d0;
+	color            : #9a382c;
+	border-radius    : 5px;
+	font-size        : 12px;
+
+}
+
+
+.footer {
+	border-top       : 5px solid var(--line);
+	padding          : 22px 0;
+	color            : black;
+	font-size        : 15px;
+}
