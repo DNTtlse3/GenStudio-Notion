@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styles from "./page.module.css";
-import { type Page_Native_Struct} from "../lib/utils";
+import { type Page_Native_Struct} from "@/lib/utils";
 
 
 export default function HomePage() {
@@ -29,7 +29,7 @@ export default function HomePage() {
 			const status = await status_response.json();
 
 			setIsNotionConnected(Boolean(status.connected));
-			setWorkspace(status.workspace || "");
+			setWorkspace(status.workspace_name || "");
 
 			if(status.connected){
 
@@ -83,7 +83,7 @@ export default function HomePage() {
 		<main className={styles.shell}>
 
 			<header className={styles.topbar}>
-				<a className={styles.wordmark} href="/">Gen<span>Studio</span></a>
+				<a className={styles.nameApp} href="/">Gen<span>Studio</span></a>
 				<div className={styles.headerRight}>
 					<span className={`${styles.status} ${isNotionConnected ? styles.online : ""}`}>
 						<i />{isNotionConnected ? "Connectd" : "Not connected"}
@@ -97,7 +97,7 @@ export default function HomePage() {
 
 			{/*Section : Introduction et button pour connecter Notion*/}
 			<section className={styles.intro}>
-				<p className={styles.eyebrow}>Documetary Section</p>
+				<p className={styles.sectionTitle}>Documetary Section</p>
 				<h1> Your Notion pages,<br/><span>are ready to be exported.</span></h1>
 				<p className={styles.subtitle}>
 					Find your Notion pages and turn then into clean documents with just a few clicks.
@@ -120,7 +120,7 @@ export default function HomePage() {
 			<section className={styles.content}>
 				<div className={styles.sectionHeading}>
 					<div>
-						<p className={styles.eyebrow}>
+						<p className={styles.sectionTitle}>
 							Library
 						</p>
 						<h2>
@@ -193,7 +193,7 @@ export default function HomePage() {
 			</section>
 
 			<footer className={styles.footer}>
-				GenStudio-Notion
+				GenStudio
 			</footer>
 		</main>
 

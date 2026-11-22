@@ -1,15 +1,15 @@
-"use server";
-
-import { cookie } from "next/headers";
-import { get_env } from "./lib/environment";
-import { decrypt, encrypt, gen_hash_session_id } from "./lib/crypto";
-import { select_session, insert_session } from "./lib/database";
+import { cookies } from "next/headers";
+import { get_env } from "@/lib/environment";
+import { decrypt, encrypt, gen_hash_session_id } from "@/lib/crypto";
+import { select_session, insert_session } from "@/lib/database";
 import { 
 	type Refresh_Properties, 
 	type Stored_Tokens, 
 	SESSION_COOKIE,
 	notion_api_refresh 
-} from "./lib/utils";
+} from "@/lib/utils";
+
+export const runtime = "nodejs";
 
 
 export async function get_session(){
@@ -30,7 +30,7 @@ export async function get_session(){
 	const tokens = JSON.parse(decrypt(query_session.encrypted_tokens)) as Stored_Tokens;
 
 	if(tokens.expires_at - Date.now() < 60_000) {
-		const refreshed = await refresh_notion_tokens(tokens.refresh_token);
+		const refreshed = await refreshed_notion_tokens(tokens.refresh_token);
 		const update : Stored_Tokens = {
 			...tokens,
 			access_token: refreshed.access_token,
@@ -93,6 +93,5 @@ async function refreshed_notion_tokens(refresh_token: string){
 
 		throw new Error(error.message);
 	}
-
 
 }

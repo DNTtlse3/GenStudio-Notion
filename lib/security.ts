@@ -1,4 +1,4 @@
-import { get_env } from "./lib/environment";
+import { get_env } from "@/lib/environment";
 
 
 export function allowed_origin(req : Request) : boolean {
@@ -16,7 +16,7 @@ export function allowed_origin(req : Request) : boolean {
 		}
 
 		try{
-			approbation = (URL(current_origin).origin == new URL(real_origin_app).origin);
+			approbation = (new URL(current_origin).origin == new URL(real_origin_app).origin);
 		} catch {
 			approbation = false;
 		}

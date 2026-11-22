@@ -2,7 +2,10 @@
 import Database from "better-sqlite3";
 import { mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
-import { type Stored_Tokens, type Query_Format } from "./lib/utils";
+import { 
+	type Stored_Tokens, 
+	type Query_Format 
+} from "@/lib/utils";
 
 
 const DB_PATH = resolve( process.env.DATABASE_PATH || "./.data/app-data.sqlite");

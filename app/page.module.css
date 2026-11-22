@@ -9,30 +9,30 @@
     -webkit-backdrop-filter : blur(25px) saturate(180%);
     border          : 1px solid rgba(255,255,255, 0.25);
     border-radius   : 35px;
-    box-shadow      : 0 8px 32px rgba(0,0,0,.15);
+    box-shadow      : 0 8px 32px rgba(0,0,0,0.30);
 
 }
 
 .topbar {
 	height          : 78px;
-	border-bottom   : 3px solid var(--line);
+	border-bottom   : 2px solid var(--line);
 	display         : flex;
 	align-items     : center;
 	justify-content : space-between;
-	border-radius   : 15px;
+	/*border-radius   : 15px;*/
 }
 
-.wordmark {
-	font-size       : 19px;
-	font-weight     : 750;
+.nameApp {
+	font-size       : 25px;
+	font-weight     : 500;
 	letter-spacing  : -1px;
 	color           : var(--ink);
 	text-decoration : none;
 }
 
-.wordmark span {
-	font-weight     : 400;
-	color           : lightcoral;
+.nameApp span {
+	font-weight     : 500;
+	color           : darkred;
 }
 
 
@@ -44,7 +44,8 @@
 
 .status {
 	font-size       : 15px;
-	color           : var(--muted);
+	font-weight     : 500;
+	color           : black;
 	display         : flex;
 	align-items     : center;
 	gap             : 8px;
@@ -86,15 +87,15 @@
 
 .intro {
 	padding         : 76px 0 66px;
-	border-bottom   : 3px solid var(--line);
-	border-radius   : 10px;
+	border-bottom   : 2px solid var(--line);
+	/*border-radius   : 10px;*/
 
 }
 
-.eyebrow {
-	font-size       : 10px;
-	letter-spacing  : 2px;
-	font-weight     : 700;
+.sectionTitle {
+	font-size       : 15px;
+	letter-spacing  : 1px;
+	font-weight     : 500;
 	color           : black;
 	margin          : 0 0 15px;
 }
@@ -109,14 +110,14 @@
 
 
 .intro h1 span {
-	color           : #aaa;
+	color           : white;
 }
 
 .subtitle {
 	color           : black;
 	line-height     : 2;
 	max-width       : 480px;
-	font-size       : 14px;
+	font-size       : 15px;
 	margin          : 22px 0 28px;
 }
 
@@ -265,27 +266,27 @@
 
 .empty {
 	min-height       : 210px;
-	border           : 3px dashed #deddd8;
-	border-radius    : 8px;
+	border           : 3px dashed lightsalmon;
+	border-radius    : 10px;
 	display          : flex;
 	flex-direction   : column;
 	align-items      : center;
 	justify-content  : center;
 	text-align       : center;
-	color            : #888;
+	color            : black;
 	padding          : 24px;
 }
 
 
 .empty h3 {
 	font-size        : 15px;
-	color            : #333;
+	color            : black;
 	margin           : 13px 0 5px;
 }
 
 
 .empty p {
-	font-size        : 12px;
+	font-size        : 15px;
 	margin           : 0;
 }
 
@@ -294,7 +295,7 @@
 	width            : 35px;
 	height           : 35px;
 	border-radius    : 10px;
-	background       : #222;
+	background       : black;
 	color            : white;
 	display          : grid;
 	place-items      : center;
@@ -304,17 +305,17 @@
 
 .error {
 	padding          : 12px;
-	background       : #fff0ee;
-	border           : 1px solid #f0d4d0;
-	color            : #9a382c;
-	border-radius    : 5px;
-	font-size        : 12px;
+	background       : rgba(255, 255, 255, 0.65);
+	border           : 5px solid lightgrey;
+	color            : rgba(255, 0, 0, 0.85);
+	border-radius    : 15px;
+	font-size        : 15px;
 
 }
 
 
 .footer {
-	border-top       : 5px solid var(--line);
+	border-top       : 1px solid var(--line);
 	padding          : 22px 0;
 	color            : black;
 	font-size        : 15px;

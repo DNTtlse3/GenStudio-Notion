@@ -1,6 +1,6 @@
-import { get_session } from "./lib/session";
-import { notion_api, Notion_Page } from "./lib/utils";
-import { get_env } from "./lib/environment";
+import { get_session } from "@/lib/session";
+import { notion_api, type Notion_Page } from "@/lib/utils";
+import { get_env } from "@/lib/environment";
 
 
 function rich_text_to_string(input : unknown) : string {
@@ -72,6 +72,7 @@ export async function notion_fetch<T>(path : string, init : RequestInit = {}) : 
 		return response.json() as Promise<T>;
 
 	} catch (error) {
+		
 		throw new Error(error.message);
 	}
 }

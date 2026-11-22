@@ -1,14 +1,5 @@
 import { createCipheriv, createDecipheriv, createHash, randomBytes } from "node:crypto";
-import { get_env } from "./lib/environment";
-
-/*
-	Pour le test on charge explicetement la variable d'environment locale
-*/
-import dotenv from "dotenv";
-
-dotenv.config({
-  path: ".env.local"
-});
+import { get_env } from "@/lib/environment";
 
 
 function gen_randomBytes(length : number){

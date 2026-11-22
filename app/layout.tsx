@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata : Metadata = {
-	title : "GenStudio-Notion",
+	title : "GenStudio",
 	description : "Consulter et exporter vos pages Notion."
 }
 

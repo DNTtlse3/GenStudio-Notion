@@ -1,5 +1,3 @@
-
-/*Pour le test on charge explicetement la variable d'environment locale*/
 import dotenv from "dotenv";
 
 dotenv.config({
