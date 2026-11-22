@@ -1,3 +1,5 @@
+"use server";
+
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { delete_session } from "@/lib/database";
@@ -5,8 +7,6 @@ import { gen_hash_session_id } from "@/lib/crypto";
 import { allowed_origin } from "@/lib/security";
 import { SESSION_COOKIE } from "@/lib/utils";
 
-
-export const runtime = "nodejs";
 
 export async function POST(request : NextRequest){
 

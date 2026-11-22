@@ -1,5 +1,5 @@
 
-.shell {
+.shellBoard {
 	
 	max-width       : 1080px;
 	margin          : 0 auto;
@@ -19,7 +19,6 @@
 	display         : flex;
 	align-items     : center;
 	justify-content : space-between;
-	/*border-radius   : 15px;*/
 }
 
 .nameApp {
@@ -174,8 +173,7 @@
 
 
 .pageList {
-	border-top       : 5px solid var(--line);
-	border-radius    : 10px;
+	border-top       : 2px solid var(--line);
 }
 
 
@@ -186,20 +184,16 @@
 	align-items      : center;
 	gap              : 17px;
 	padding          : 14px 4px;
-	border-radius    : 15px;
 }
 
 
 .pageIcon {
 	width            : 55px;
 	height           : 40px;
-	border           : 3px solid var(--line);
-	border-radius    : 10px;
 	display          : grid;
 	place-items      : center;
 	color            : black;
 	font-size        : 18px;
-	background       : #A0C1D1;
 }
 
 
@@ -219,8 +213,8 @@
 
 
 .pageInfo p {
-	font-size        : 11px;
-	color            : #999;
+	font-size        : 15px;
+	color            : white;
 	margin           : 0;
 }
 

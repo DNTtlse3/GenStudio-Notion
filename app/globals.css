@@ -16,7 +16,7 @@ html, body {
 
 	/*margin       : 10;*/
 	min-height   : 100%;
-	background   : #B8860B;
+	background   : lightslategray;
 	color        : var(--ink);
 	font-family  : system-ui, sans-serif
 }

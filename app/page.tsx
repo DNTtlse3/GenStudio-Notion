@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import { type Page_Native_Struct} from "@/lib/utils";
+import { BsFileRichtext } from "react-icons/bs";
 
 
 export default function HomePage() {
@@ -80,7 +81,7 @@ export default function HomePage() {
 
 	return (
 
-		<main className={styles.shell}>
+		<main className={styles.shellBoard}>
 
 			<header className={styles.topbar}>
 				<a className={styles.nameApp} href="/">Gen<span>Studio</span></a>
@@ -163,8 +164,8 @@ export default function HomePage() {
 										pages.map((page) =>(
 
 											<article className={styles.pageCard} key={page.id}>
-												<div className={styles.pageIcon}>Page</div>
-												<div className={styles.pageInof}>
+												<div className={styles.pageIcon}><BsFileRichtext size={30}/></div>
+												<div className={styles.pageInfo}>
 													<h3>{page.title}</h3>
 													<p>
 														{page.last_edited_time ? 
