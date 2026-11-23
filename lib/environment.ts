@@ -12,7 +12,7 @@ dotenv.config({
 /*=======================================================================================*/
 
 export function get_env(name : string){
-  const env : string = process.env[name];
+  const env = process.env[name];
   if(!env){
     throw new Error(`{env :: ${name}} don't exists !`);
   }

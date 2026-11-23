@@ -29,6 +29,10 @@ export function allowed_origin(req : Request) : boolean {
 
 	} catch(error) {
 
-		throw new Error(error.message);
+		if(error instanceof Error){
+			throw new Error(error.message);
+		}else{
+			throw new Error("fct[allowed_origin] => [Unknown error]");
+		}
 	}
 }

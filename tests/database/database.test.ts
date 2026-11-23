@@ -8,7 +8,7 @@ const session_id = gen_session_id();
 const id_hash = gen_hash_session_id(session_id);
 
 const tokens : Stored_Tokens = {
-	acess_token : "",
+	access_token : "",
 	refresh_token : "",
 	expires_at: Date.now() + 30 * 24 * 60 * 60 * 1000,
 	workspace_name : "Test"

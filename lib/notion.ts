@@ -85,8 +85,12 @@ export async function notion_fetch<T>(path : string, init : RequestInit = {}) : 
 
 		return response.json() as Promise<T>;
 
-	} catch (error) {
+	} catch (error ) {
 		
-		throw new Error(error.message);
+		if(error instanceof Error){
+			throw new Error(error.message);
+		}else{
+			throw new Error("fct[notion_fetch<>] => [Unknown error]");
+		}
 	}
 }

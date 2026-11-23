@@ -98,7 +98,11 @@ async function refreshed_notion_tokens(refresh_token: string){
 
 	} catch(error) {
 
-		throw new Error(error.message);
+		if(error instanceof Error){
+			throw new Error(error.message);
+		}else{
+			throw new Error("fct[refreshed_notion_tokens] => [Unknown error]");
+		}
 	}
 
 }

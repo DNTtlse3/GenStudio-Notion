@@ -11,7 +11,9 @@ import {
 
 /*=======================================================================================*/
 
-const DB_PATH = resolve( process.env.DATABASE_PATH || "./.data/app-data.sqlite");
+const DEFAULT_DB_PATH = "./.data/app-data.sqlite";
+
+const DB_PATH = resolve( process.env.DATABASE_PATH ?? DEFAULT_DB_PATH);
 mkdirSync( dirname(DB_PATH) , { recursive : true } );
 
 /*=======================================================================================*/

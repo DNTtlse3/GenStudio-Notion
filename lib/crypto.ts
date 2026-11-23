@@ -33,7 +33,11 @@ function env_key() : Buffer {
 
 	} catch(error){
 
-		throw new Error(error.message);
+		if(error instanceof Error){
+			throw new Error(error.message);
+		}else{
+			throw new Error("fct[env_key] => [Unknown error]");
+		}
 	}
 }
 
@@ -76,7 +80,7 @@ export function gen_session_id(): string{
 
 /*=======================================================================================*/
 
-export function gen_hash_session_id(session_id: String): string {
+export function gen_hash_session_id(session_id: string): string {
 	return createHash("sha256").update(session_id).digest("hex");
 }
 
