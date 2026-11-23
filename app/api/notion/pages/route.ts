@@ -1,9 +1,9 @@
+"use server";
+
+
 import { NextResponse } from "next/server";
 import { get_session } from "@/lib/session";
 import { get_page_title, search_pages } from "@/lib/notion";
-
-export const runtime = "nodejs";
-
 
 export async function GET(){
 

@@ -1,7 +1,10 @@
+"use server";
+
 import { cookies } from "next/headers";
 import { get_env } from "@/lib/environment";
 import { decrypt, encrypt, gen_hash_session_id } from "@/lib/crypto";
 import { select_session, insert_session } from "@/lib/database";
+
 import { 
 	type Refresh_Properties, 
 	type Stored_Tokens, 
@@ -9,9 +12,9 @@ import {
 	notion_api_refresh 
 } from "@/lib/utils";
 
-export const runtime = "nodejs";
 
-
+/*=======================================================================================*/
+/**/
 export async function get_session(){
 
 	const cookie_store = await cookies();
@@ -29,7 +32,11 @@ export async function get_session(){
 
 	const tokens = JSON.parse(decrypt(query_session.encrypted_tokens)) as Stored_Tokens;
 
-	if(tokens.expires_at - Date.now() < 60_000) {
+	/*
+		Si le token_access de la session à expirer, alors on appel Notion pour demander un 
+		renouvellement.
+	*/
+	if(tokens.expires_at - Date.now() < 60000) {
 		const refreshed = await refreshed_notion_tokens(tokens.refresh_token);
 		const update : Stored_Tokens = {
 			...tokens,
@@ -53,7 +60,7 @@ export async function get_session(){
 	};
 }
 
-
+/*=======================================================================================*/
 
 async function refreshed_notion_tokens(refresh_token: string){
 
@@ -95,3 +102,5 @@ async function refreshed_notion_tokens(refresh_token: string){
 	}
 
 }
+
+/*=======================================================================================*/

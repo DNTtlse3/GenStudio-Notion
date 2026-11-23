@@ -3,6 +3,8 @@ import { notion_api, type Notion_Page } from "@/lib/utils";
 import { get_env } from "@/lib/environment";
 
 
+/*=======================================================================================*/
+
 function rich_text_to_string(input : unknown) : string {
 	if(!Array.isArray(input)){
 		return "";
@@ -11,6 +13,7 @@ function rich_text_to_string(input : unknown) : string {
 	return input.map((item : any) => item?.plain_text ?? "").join("");
 }
 
+/*=======================================================================================*/
 
 export function get_page_title(page : Notion_Page) : string {
 
@@ -24,6 +27,15 @@ export function get_page_title(page : Notion_Page) : string {
 
 	return page.title || "Untitled page";
 }
+
+
+/*=======================================================================================*/
+
+/*
+	Ref : 
+		-https://developers.notion.com/reference/intro
+		-https://github.com/DNTtlse3/Notion-connector/blob/main/apps/web/lib/api-client.ts
+*/
 
 
 export async function search_pages(): Promise<Notion_Page[]>{
@@ -42,11 +54,13 @@ export async function search_pages(): Promise<Notion_Page[]>{
 }
 
 
+/*=======================================================================================*/
+
 export async function notion_fetch<T>(path : string, init : RequestInit = {}) : Promise<T> {
 	
 	const session = await get_session();
 	if(!session){
-		throw new Error("");
+		throw new Error("Unbale to get a session.");
 	}
 
 	try {

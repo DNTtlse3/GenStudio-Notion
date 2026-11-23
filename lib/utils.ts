@@ -4,12 +4,21 @@ export const notion_api_refresh = "https://api.notion.com/v1/oauth/token";
 export const SESSION_COOKIE = "notion_studio_session";
 
 
+
+/*TYPE*/
+/*
+	Ref :
+		-https://github.com/DNTtlse3/Notion-connector/blob/main/apps/web/types/notion.ts
+*/
+/*------------------------------------------------------------------------*/
+
 export type Refresh_Properties = { 
 	access_token: string; 
     refresh_token: string; 
     expires_in?: number; 
 };
 
+/*------------------------------------------------------------------------*/
 
 
 export type Notion_Page = {
@@ -20,6 +29,7 @@ export type Notion_Page = {
 	title?: string;
 };
 
+/*------------------------------------------------------------------------*/
 
 
 export type Notion_Block = {
@@ -30,12 +40,17 @@ export type Notion_Block = {
 };
 
 
+/*------------------------------------------------------------------------*/
+
+
 export type Query_Format = {
 	id_hash: string;
 	encrypted_tokens: string;
 	workspace_name: string | null;
 	expires_at: number;
 };
+
+/*------------------------------------------------------------------------*/
 
 
 export type Stored_Tokens = {
@@ -45,6 +60,8 @@ export type Stored_Tokens = {
 	workspace_name?: string;
 };
 
+/*------------------------------------------------------------------------*/
+
 
 export type Page_Native_Struct = {
 	id: string;
@@ -52,3 +69,5 @@ export type Page_Native_Struct = {
 	url?: string;
 	last_edited_time?: string;
 }
+
+/*------------------------------------------------------------------------*/

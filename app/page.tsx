@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "./page.module.css";
+import styles from "./specific.module.css";
 import { type Page_Native_Struct} from "@/lib/utils";
-import { BsFileRichtext } from "react-icons/bs";
+import { BsFileRichtext, BsEyeFill } from "react-icons/bs";
 
 
 export default function HomePage() {
 
-	/**/
+
 	const [isNotionConnected, setIsNotionConnected] = useState(false);
 	const [workspace, setWorkspace] = useState("");
 	const [pages, setPages] = useState<Page_Native_Struct[]>([]);
@@ -18,9 +18,11 @@ export default function HomePage() {
 
 
 	async function load_pages(){
-		setIsLoading(true);
 
+		setIsLoading(true);
+		
 		try {
+
 
 			const status_response = await fetch(
 				"/api/notion/status",
@@ -76,7 +78,9 @@ export default function HomePage() {
 		setWorkspace("")
 	}
 
-	async function generate_pdf(page : Page_Native_Struct){}
+	async function generate_pdf(page : Page_Native_Struct){
+
+	}
 
 
 	return (
@@ -117,7 +121,7 @@ export default function HomePage() {
 				}
 			</section>
 
-			{/*Section : Affichage des pages trouvés*/}
+			{/*Section : Affichage des pages trouvés */}
 			<section className={styles.content}>
 				<div className={styles.sectionHeading}>
 					<div>
@@ -174,8 +178,8 @@ export default function HomePage() {
 													</p>
 												</div>
 												<div className={styles.actions}>
-													<a className={styles.secondary} href={`/preview/${page.id}`}>
-														Visualise
+													<a className={styles.secondary} href={page.url} target="_blank" rel="noopener noreferrer">
+														<BsEyeFill size={20}/>
 													</a>
 
 													<button 

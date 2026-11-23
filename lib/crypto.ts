@@ -1,16 +1,26 @@
+/*
+	Ref pour la construction des fonctions ci-dessous : 
+		-https://fr.wikipedia.org/wiki/Advanced_Encryption_Standard
+		-https://gist.github.com/lauslim12/4ec0552c8e3bbb690f4e527ccf49ab72
+		-https://github.com/DNTtlse3/Notion-connector/blob/main/apps/server/src/utils/crypto.ts
+*/
+
+
 import { createCipheriv, createDecipheriv, createHash, randomBytes } from "node:crypto";
 import { get_env } from "@/lib/environment";
 
 
+/*=======================================================================================*/
+
 function gen_randomBytes(length : number){
-	if(length >= 0){
-		return randomBytes(length);
-	}else{
-		return randomBytes(0);
-	}
+	return (length < 0) ? randomBytes(0) : randomBytes(length);
 }
 
+/*=======================================================================================*/
 
+/*
+	Fonction pour vérifier si la ENCRYPTION_KEY fait bien 32 octets.
+*/
 function env_openssl_key() : Buffer {
 	try{
 		const env_key = Buffer.from(get_env("ENCRYPTION_KEY"),"base64");
@@ -28,6 +38,9 @@ function env_openssl_key() : Buffer {
 }
 
 
+/*=======================================================================================*/
+
+
 export function encrypt(input: string) : string {
 
 	const init_vect = gen_randomBytes(12);
@@ -39,6 +52,7 @@ export function encrypt(input: string) : string {
 }
 
 
+/*=======================================================================================*/
 
 export function decrypt(input: string) : string {
 
@@ -54,16 +68,19 @@ export function decrypt(input: string) : string {
 	return Buffer.concat([decipher.update(data,"base64"), decipher.final()]).toString("utf8");
 }
 
+/*=======================================================================================*/
 
 export function gen_session_id(): string{
 	return gen_randomBytes(32).toString("base64");
 }
 
+/*=======================================================================================*/
 
 export function gen_hash_session_id(session_id: String): string {
 	return createHash("sha256").update(session_id).digest("hex");
 }
 
+/*=======================================================================================*/
 
 export function gen_new_state(): string {
 	return gen_randomBytes(32).toString("base64url");

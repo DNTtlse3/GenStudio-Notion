@@ -1,3 +1,5 @@
+/*Doc : https://github.com/WiseLibs/better-sqlite3/blob/HEAD/docs/api.md*/
+
 
 import Database from "better-sqlite3";
 import { mkdirSync } from "node:fs";
@@ -7,15 +9,19 @@ import {
 	type Query_Format 
 } from "@/lib/utils";
 
+/*=======================================================================================*/
 
 const DB_PATH = resolve( process.env.DATABASE_PATH || "./.data/app-data.sqlite");
 mkdirSync( dirname(DB_PATH) , { recursive : true } );
 
+/*=======================================================================================*/
 
+/**/
 const genStudioNotion_database = new Database(DB_PATH);
 
 genStudioNotion_database.pragma("journal_mode = WAL");
 genStudioNotion_database.pragma("foreign_keys = ON" );
+
 
 
 genStudioNotion_database.exec(
@@ -30,7 +36,9 @@ genStudioNotion_database.exec(
 `
 );
 
+/*=======================================================================================*/
 
+/**/
 export function insert_session(id_hash: string, encrypted_tokens: string, tokens: Stored_Tokens){
 
 	const start = Date.now();
@@ -65,8 +73,9 @@ export function insert_session(id_hash: string, encrypted_tokens: string, tokens
 	});
 }
 
+/*=======================================================================================*/
 
-
+/**/
 export function select_session(id_hash : string){
 
 	const result = genStudioNotion_database.prepare(
@@ -76,8 +85,9 @@ export function select_session(id_hash : string){
 	return result as Query_Format | undefined;
 }
 
+/*=======================================================================================*/
 
-
+/**/
 export function delete_session(id_hash : string){
 
 	genStudioNotion_database.prepare(
@@ -85,3 +95,6 @@ export function delete_session(id_hash : string){
 	).run(id_hash);
 
 }
+
+
+/*=======================================================================================*/
