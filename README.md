@@ -42,29 +42,26 @@ pnpm install
 Créer un fichier de variables d'environement dans `GenStudio-Notion/.env.local`
 
 ```env
-# URL locale de l'application, sans slash final.
+
 APP_URL=http://localhost:3000
 
-# Informations fournies par le portail développeur Notion.
 NOTION_CLIENT_ID=remplacer_par_le_client_id
 NOTION_CLIENT_SECRET=remplacer_par_le_client_secret
 NOTION_REDIRECT_URI=http://localhost:3000/api/auth/notion/callback
 NOTION_AUTH_URL=https://api.notion.com/v1/oauth/authorize
 NOTION_API_VERSION=2026-03-11
 
-# Clé AES-256 de 32 octets encodée en Base64.
 ENCRYPTION_KEY=remplacer_par_une_cle_base64_de_32_octets
 
-# Chemin de la base SQLite locale.
+
 DATABASE_PATH=./.data/app-data.sqlite
 
-# Mode développement
 NODE_ENV=development
 ```
 
-Généner une clé de chiffrement de jeton à l'aide de:
+Généner une clé de chiffrement de jeton à l'aide de :
 ```bash
-openssl rand -base64 32
+node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
 ```
 
 Assurez-vous que l'URI de redirection de votre intégration Notion corresponde exactement à:
@@ -89,6 +86,19 @@ L'application s'exécute à l'adresse `http://localhost:3000`
 |`pnpm test`|Exécuter les test en mode surveillance|
 |`pnpm test:run`|Exécuter les tests une seule fois|
 |`pnpm typecheck`|Vérifier les types TypeScript|
+
+
+## Présentation de l'API
+
+Voici les Frontend requests
+
+|Endpoint|Méthode|Description
+|---------|---------|---------|
+|`/api/auth/notion/connect`|`GET`|Créer une URL d'authorisation OAuth.|
+|`/api/auth/notion/callback`|`GET`|Échanger un code OAuth contre des jetons.|
+|`/api/notion/status`|`GET`|Vérifier l'état de la connexion de l'utilisateur actuel.|
+|`/api/auth/notion/disconnect`|`POST`|Supprimer la connexion Notion enregistrée.|
+|`/api/notion/page`|`GET`|Récupérer la liste des pages Notion auxquelles l'utilisateur a accordé l'accés lors de l'autorisation OAuth.|
 
 
 

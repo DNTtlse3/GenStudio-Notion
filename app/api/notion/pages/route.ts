@@ -27,7 +27,9 @@ export async function GET(){
 		}));
 
 		return NextResponse.json({ pages });
-	} catch{
+
+	} catch {
+
 		return NextResponse.json(
 			{error: "Unable to retrieve Notion pages."},
 			{status: 500}

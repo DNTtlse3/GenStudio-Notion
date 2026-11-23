@@ -21,7 +21,7 @@ function gen_randomBytes(length : number){
 /*
 	Fonction pour vérifier si la ENCRYPTION_KEY fait bien 32 octets.
 */
-function env_openssl_key() : Buffer {
+function env_key() : Buffer {
 	try{
 		const env_key = Buffer.from(get_env("ENCRYPTION_KEY"),"base64");
 
@@ -44,7 +44,7 @@ function env_openssl_key() : Buffer {
 export function encrypt(input: string) : string {
 
 	const init_vect = gen_randomBytes(12);
-	const cipher    = createCipheriv("aes-256-gcm", env_openssl_key(), init_vect);
+	const cipher    = createCipheriv("aes-256-gcm", env_key(), init_vect);
 	const result    = Buffer.concat([cipher.update(input, "utf8"), cipher.final()]);
 	const ref       = cipher.getAuthTag()
 
@@ -62,7 +62,7 @@ export function decrypt(input: string) : string {
 		throw new Error("Invalid encrypted data");
 	}
 
-	const decipher = createDecipheriv("aes-256-gcm", env_openssl_key(), Buffer.from(init_vect,"base64"));
+	const decipher = createDecipheriv("aes-256-gcm", env_key(), Buffer.from(init_vect,"base64"));
 	decipher.setAuthTag(Buffer.from(ref,"base64"));
 
 	return Buffer.concat([decipher.update(data,"base64"), decipher.final()]).toString("utf8");

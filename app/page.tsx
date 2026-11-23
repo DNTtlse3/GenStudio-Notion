@@ -8,7 +8,6 @@ import { BsFileRichtext, BsEyeFill } from "react-icons/bs";
 
 export default function HomePage() {
 
-
 	const [isNotionConnected, setIsNotionConnected] = useState(false);
 	const [workspace, setWorkspace] = useState("");
 	const [pages, setPages] = useState<Page_Native_Struct[]>([]);
