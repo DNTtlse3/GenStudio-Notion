@@ -4,16 +4,23 @@ import { useEffect, useState } from "react";
 import styles from "./specific.module.css";
 import { type Page_Native_Struct} from "@/lib/utils";
 import { BsFileRichtext, BsEyeFill } from "react-icons/bs";
+import { useRouter } from "next/navigation";
 
 
 export default function HomePage() {
+
+	/*
+		Permet lorsque on fait retour depuis la page editor de
+		revennir à notre page précédente
+	*/
+	const router = useRouter();
 
 	const [isNotionConnected, setIsNotionConnected] = useState(false);
 	const [workspace, setWorkspace] = useState("");
 	const [pages, setPages] = useState<Page_Native_Struct[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [message, setMessage] = useState("");
-	const [isProcessId, setIsProcessId] = useState("");
+	/*const [isProcessId, setIsProcessId] = useState("");*/
 
 
 	async function load_pages(){
@@ -78,7 +85,9 @@ export default function HomePage() {
 	}
 
 	async function generate_pdf(page : Page_Native_Struct){
+		setMessage("");
 
+		router.push(`/editor/${page.id}`);
 	}
 
 
@@ -184,9 +193,10 @@ export default function HomePage() {
 													<button 
 														className={styles.primarySmall} 
 														onClick={() => generate_pdf(page)}
-														disabled={isProcessId === page.id} 
+														/*disabled={isProcessId === page.id}*/
 													>
-														{isProcessId === page.id ? "Generating..." : "Generate PDF"}
+														{/*{isProcessId === page.id ? "Generating..." : "Generate PDF"}*/}
+														Generate PDF
 													</button>
 												</div>
 											</article>

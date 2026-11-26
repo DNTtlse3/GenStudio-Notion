@@ -1,0 +1,114 @@
+.globalContainer {
+	display        : flex;
+	flex-direction : column;
+	gap            : 3;
+}
+
+/*=======================================================================================*/
+
+
+.tabButton {
+	gap            : 2;
+	display        : flex;
+
+}
+
+/*=======================================================================================*/
+
+.topButtons {
+	display        : flex;
+	gap            : 82vh;
+}
+
+/*=======================================================================================*/
+
+.compileButton {
+	background     : lightsalmon;
+	font-weight    : 500;
+	border-radius  : 10px;
+	text-align     : center;
+	width          : 100px;
+	height         : 35px;
+	border-radius  : 15px;
+	border         : 2px solid black;
+	transition     : background-color 0.3s ease;
+}
+
+/*=======================================================================================*/
+
+.compileButton:hover {
+	background     : lightblue;
+}
+
+/*=======================================================================================*/
+
+.currentLanguage {
+	background     : lightcoral;
+	font-size      : 17px;
+	font-weight    : 500;
+	border-radius  : 10px;
+
+}
+
+/*=======================================================================================*/
+
+.notCurrent {
+	background     : white;
+	border-radius  : 10px;
+	font-weight    : 500;
+}
+
+/*=======================================================================================*/
+
+.editor{
+	border-radius  : 15px;
+	overflow       : hidden;
+	display        : flex;       
+}
+
+/*=======================================================================================*/
+
+.editorConfig{
+	width          : 105vh;
+	height         : 85vh;	
+}
+
+/*=======================================================================================*/
+
+.editPrevContainer {
+	display : flex;
+	gap     : 5;
+}
+
+/*=======================================================================================*/
+
+.preview {
+	width            : 50%;
+	background-color : white;
+	border-radius    : 15px;
+}
+
+/*=======================================================================================*/
+
+.iframeConfig{
+	width            : 100%;
+	height           : 100%;
+	border-radius    : 15px;
+
+}
+
+/*=======================================================================================*/
+
+.homeButton {
+	border           : none;
+	height           : 35px;
+	background       : var(--bg);
+}
+
+
+/*=======================================================================================*/
+
+.topButtonsCompHome {
+	display         : flex;
+	gap             : 82vh;
+}

@@ -13,7 +13,10 @@ import {
 
 const DEFAULT_DB_PATH = "./.data/app-data.sqlite";
 
+
+/*Apporter une mise-à-jour ici, lors du build il y'a warning*/
 const DB_PATH = resolve( process.env.DATABASE_PATH ?? DEFAULT_DB_PATH);
+
 mkdirSync( dirname(DB_PATH) , { recursive : true } );
 
 /*=======================================================================================*/
